@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   Card,
+  CardContent,
   CardHeader,
   CssBaseline,
   ThemeProvider,
@@ -8,13 +9,8 @@ import {
   createTheme,
 } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
+import Loot from "./Loot";
 import type { Role, ThemeMode } from "./types";
-
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg"; - public
-
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
-// import CssBaseline from '@mui/material/CssBaseline';
 
 const darkTheme = createTheme({
   palette: {
@@ -51,52 +47,34 @@ export default function App({
   initialTheme: ThemeMode;
 }) {
   const [role, setRole] = useState<Role>(initialRole);
-  const [theme, setTheme] = useState<ThemeMode>(initialTheme);
-  console.log(16, theme);
+  // const [theme, setTheme] = useState<ThemeMode>(initialTheme);
+
   useEffect(() => {
-    OBR.player.onChange((player) => setRole(player.role));
-    OBR.theme.onChange((theme) => setTheme(theme.mode));
+    OBR.player.onChange((player) => {
+      console.log(59, player);
+
+      OBR.action.setHeight(role === "GM" ? 700 : 122);
+      setRole(player.role);
+    });
+    // OBR.theme.onChange((theme) => setTheme(theme.mode));
   }, []);
+
+  // 122
 
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <Typography variant="h6" component="h1" sx={{ m: [2, 1] }}>
+        Loot
+      </Typography>
       {role === "GM" ? (
+        <Loot />
+      ) : (
         <Card>
           <CardHeader title="Loot" />
+          <CardContent>GM Access Required</CardContent>
         </Card>
-      ) : (
-        <div className={theme === "DARK" ? "dark" : ""}>
-          <div className="flex h-screen flex-col gap-3 overflow-y-auto p-3">
-            <h1 className="pl-1 text-lg font-bold text-black/[0.87] dark:text-white">
-              Loot
-            </h1>
-            <p className="pl-1 text-sm">GM Access Required</p>
-          </div>
-        </div>
       )}
     </ThemeProvider>
   );
-}
-
-{
-  /* <div className="css-s92abg">
-<CardHeader>
-  <Typography component="h3">
-    <span>Loot</span>
-  </Typography>
-  <p>GM Access Required</p>
-</CardHeader>
-</div> */
-}
-
-{
-  /* <div className={theme === "DARK" ? "dark" : ""}>
-<div className="flex h-screen flex-col gap-3 overflow-y-auto p-3">
-  <h1 className="pl-1 text-lg font-bold text-black/[0.87] dark:text-white">
-    Loot
-  </h1>
-  <p className="pl-1 text-sm">GM Access Required</p>
-</div>
-</div> */
 }

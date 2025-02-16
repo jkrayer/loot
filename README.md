@@ -1,5 +1,17 @@
 # loot
+
 Save and distribute loot in Owlbear Rodeo.
+
+## To Do
+
+1. 
+
+## To Fix
+
+1. Transparent backgrounds
+2. Font sizes
+3. Dynamic Theme
+
 
 ## React + TypeScript + Vite
 
