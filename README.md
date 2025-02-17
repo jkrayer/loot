@@ -6,8 +6,11 @@ Save and distribute loot in Owlbear Rodeo.
 
 1. Add Default Package Name = Package packages.length + 1
 2. Add Send Now Function, can be done after send is added
+3. Clear Form?
+4. Collapse Form?
+5. Inline confirm delete
 
-## To Fix
+  ## To Fix
 
 1. Transparent backgrounds
 2. Font sizes

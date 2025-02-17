@@ -1,37 +1,30 @@
 import { useEffect, useState } from "react";
 import OBR from "@owlbear-rodeo/sdk";
-import { getApplicationData } from "./lib";
+import { List } from "@mui/material";
+import { getApplicationData, readLoot } from "./lib";
 import { type LootPackage } from "./types";
+import ListItem from "./ListItem";
 
 export default function ListPackages() {
   const [packages, setPackages] = useState<LootPackage[]>([]);
 
-  /**
-   * Use an `onMetadataChange` event with a React `useEffect`.
-   * `onMetadataChange` returns an unsubscribe event to make this easy.
-   */
   // EFFECTS
-  useEffect(
-    () =>
-      OBR.scene.onMetadataChange((metadata) => {
-        console.log(20, metadata);
-        setPackages(getApplicationData(metadata));
-      }),
-    [],
-  );
+  useEffect(() => {
+    OBR.onReady(async () => {
+      const loot = await readLoot();
+      setPackages(loot);
+    });
 
-  console.log(25, packages);
-
-  // LIST
-  // Each Row Shows Title
-  // Accordion or Hover to show whole package
-  // Two controls, Delete and Play
+    return OBR.scene.onMetadataChange((metadata) => {
+      setPackages(getApplicationData(metadata));
+    });
+  }, []);
 
   return (
-    <ul>
+    <List>
       {packages.map((loot) => (
-        <li key={loot.id}>{loot.title}</li>
+        <ListItem key={loot.id} loot={loot} />
       ))}
-    </ul>
+    </List>
   );
 }
