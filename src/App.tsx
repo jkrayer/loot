@@ -9,7 +9,8 @@ import {
   createTheme,
 } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
-import Loot from "./Loot";
+import ListPackages from "./ListPackages";
+import LootPackageForm from "./LootPackageForm";
 import type { Role, ThemeMode } from "./types";
 
 const darkTheme = createTheme({
@@ -68,7 +69,10 @@ export default function App({
         Loot
       </Typography>
       {role === "GM" ? (
-        <Loot />
+        <>
+          <LootPackageForm />
+          <ListPackages />
+        </>
       ) : (
         <Card>
           <CardHeader title="Loot" />

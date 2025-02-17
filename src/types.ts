@@ -6,5 +6,3 @@ export type LootPackage = {
   title: string;
   lootPackage: string;
 };
-
-export type LP = Omit<LootPackage, "id">;

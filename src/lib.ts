@@ -1,4 +1,4 @@
-import { propOr } from "ramda";
+import { all, compose, isNotEmpty, propOr, replace, trim } from "ramda";
 import OBR from "@owlbear-rodeo/sdk";
 import type { LootPackage } from "./types";
 
@@ -18,14 +18,43 @@ export function createEmptyLootPackage(): LootPackage {
   };
 }
 
+// SANITIZE AND VALIDATE
+const sanitizeString = compose<[string], string, string>(
+  replace(/<[^>]*>/g, ""),
+  trim,
+);
+
+// See modify
+const sanitize = ({ id, title, lootPackage }: LootPackage): LootPackage => ({
+  id,
+  title: sanitizeString(title),
+  lootPackage: sanitizeString(lootPackage),
+});
+
+const isValid = (loot: LootPackage): [LootPackage, boolean] => {
+  return [loot, all(isNotEmpty, Object.values(loot))];
+};
+
+const validate = compose<[LootPackage], LootPackage, [LootPackage, boolean]>(
+  isValid,
+  sanitize,
+);
+
 // Scene CRUD //////////////////////////////////////////////////////////////////
 export async function createLoot(loot: LootPackage): Promise<LootPackage> {
-  console.log("saving", loot);
-  const packages = await readLoot();
+  const [newLoot, valid] = validate(loot);
+  console.log(46, newLoot);
+  if (valid) {
+    const packages = await readLoot();
 
-  await OBR.scene.setMetadata({ [APPLICATION_KEY]: packages.concat(loot) });
+    await OBR.scene.setMetadata({
+      [APPLICATION_KEY]: packages.concat(newLoot),
+    });
 
-  return loot;
+    return newLoot;
+  } else {
+    throw newLoot;
+  }
 }
 
 export async function readLoot(): Promise<LootPackage[]> {

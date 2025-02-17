@@ -5,15 +5,17 @@ import { type LootPackage } from "./types";
 
 export default function LootPackageForm() {
   const [state, setState] = useState<LootPackage>(createEmptyLootPackage());
-  console.log(8, state);
-  // naive implementation, needs error handling
+
   const handleChange = (e: FormEvent) => {
     e.preventDefault();
 
-    createLoot(state).then((...x) => {
-      console.log(14, x);
-      setState(createEmptyLootPackage());
-    });
+    createLoot(state)
+      .then((...x) => {
+        setState(createEmptyLootPackage());
+      })
+      .catch((err) => {
+        setState(err);
+      });
   };
 
   return (
