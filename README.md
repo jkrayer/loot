@@ -6,7 +6,8 @@ Save and distribute loot in Owlbear Rodeo.
 
 ### 0.1.0 Plugin Clean Up
 
-1. Transparent Backgrounds
+1. ~~Transparent Backgrounds~~
+   1. ~~What is background.html~~
 2. Font sizes
 3. Dynamic Theme
 4. Start Documentation
@@ -35,6 +36,7 @@ Save and distribute loot in Owlbear Rodeo.
 
 1. CI/CD
 2. [Sharing the Extension](https://docs.owlbear.rodeo/extensions/tutorial-sharing-your-extension/)
+3. public repo
 
 ## Notional Future Features
 

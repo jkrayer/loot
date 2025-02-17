@@ -43,7 +43,7 @@ const validate = compose<[LootPackage], LootPackage, [LootPackage, boolean]>(
 // Scene CRUD //////////////////////////////////////////////////////////////////
 export async function createLoot(loot: LootPackage): Promise<LootPackage> {
   const [newLoot, valid] = validate(loot);
-  console.log(46, newLoot);
+
   if (valid) {
     const packages = await readLoot();
 

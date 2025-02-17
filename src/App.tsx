@@ -12,6 +12,15 @@ import LootPackageForm from "./LootPackageForm";
 import type { Role, ThemeMode } from "./types";
 
 const darkTheme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: "initial",
+        },
+      },
+    },
+  },
   palette: {
     mode: "dark",
     primary: {
@@ -50,8 +59,6 @@ export default function App({
 
   useEffect(() => {
     OBR.player.onChange((player) => {
-      console.log(59, player);
-
       OBR.action.setHeight(role === "GM" ? 700 : 122);
       setRole(player.role);
     });
