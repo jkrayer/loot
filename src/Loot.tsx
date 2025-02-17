@@ -17,10 +17,13 @@ export default function Loot() {
   useEffect(
     () =>
       OBR.scene.onMetadataChange((metadata) => {
+        console.log(20, metadata);
         setPackages(getApplicationData(metadata));
       }),
     [],
   );
+
+  console.log(25, packages);
 
   return (
     <>

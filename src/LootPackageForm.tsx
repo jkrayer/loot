@@ -1,15 +1,19 @@
 import { useState, type FormEvent } from "react";
-import { Box, Button, ButtonGroup, TextField } from "@mui/material";
-import { createLootPackage, createEmptyLootPackage, PACKAGE } from "./lib";
-import { type LootPackage, LP } from "./types";
+import { Box, Button, TextField } from "@mui/material";
+import { createLoot, createEmptyLootPackage, PACKAGE } from "./lib";
+import { type LootPackage } from "./types";
 
 export default function LootPackageForm() {
-  const [state, setState] = useState<LP>(createEmptyLootPackage());
-
+  const [state, setState] = useState<LootPackage>(createEmptyLootPackage());
+  console.log(8, state);
+  // naive implementation, needs error handling
   const handleChange = (e: FormEvent) => {
     e.preventDefault();
-    console.log(createLootPackage(state));
-    setState(createEmptyLootPackage());
+
+    createLoot(state).then((...x) => {
+      console.log(14, x);
+      setState(createEmptyLootPackage());
+    });
   };
 
   return (
@@ -43,7 +47,6 @@ export default function LootPackageForm() {
         size="small"
         value={state.title}
       />
-      {/* <input /> */}
       <TextField
         defaultValue={`1000 gp, 500 pp`}
         fullWidth
