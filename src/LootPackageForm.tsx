@@ -6,11 +6,11 @@ import { type LootPackage } from "./types";
 export default function LootPackageForm() {
   const [state, setState] = useState<LootPackage>(createEmptyLootPackage());
 
-  const handleChange = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     createLoot(state)
-      .then((...x) => {
+      .then(() => {
         setState(createEmptyLootPackage());
       })
       .catch((err) => {
@@ -32,7 +32,7 @@ export default function LootPackageForm() {
       }}
       noValidate
       autoComplete="off"
-      onSubmit={handleChange}
+      onSubmit={handleSubmit}
     >
       <TextField
         defaultValue={`${PACKAGE} 1`}

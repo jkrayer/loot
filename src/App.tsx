@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import {
-  Card,
-  CardContent,
-  CardHeader,
   CssBaseline,
   ThemeProvider,
   Typography,
   createTheme,
 } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
+import { APPLICATION_KEY, showMessage } from "./lib";
 import ListPackages from "./ListPackages";
 import LootPackageForm from "./LootPackageForm";
 import type { Role, ThemeMode } from "./types";
@@ -60,7 +58,8 @@ export default function App({
     // OBR.theme.onChange((theme) => setTheme(theme.mode));
   }, []);
 
-  // 122
+  // HANDLE SHOWING THE LOOT
+  useEffect(() => OBR.broadcast.onMessage(APPLICATION_KEY, showMessage), []);
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -74,10 +73,9 @@ export default function App({
           <ListPackages />
         </>
       ) : (
-        <Card>
-          <CardHeader title="Loot" />
-          <CardContent>GM Access Required</CardContent>
-        </Card>
+        <Typography component="p" sx={{ m: [2, 1] }} variant="body2">
+          GM Access Required
+        </Typography>
       )}
     </ThemeProvider>
   );

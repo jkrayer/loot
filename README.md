@@ -9,12 +9,24 @@ Save and distribute loot in Owlbear Rodeo.
 3. Clear Form?
 4. Collapse Form?
 5. Inline confirm delete
+6. Add a shared attribute to indicate a package has been sent
+7. Probably scroll the package ...
 
-  ## To Fix
+## To Fix
 
-1. Transparent backgrounds
+1. Transparent Backgrounds
 2. Font sizes
 3. Dynamic Theme
+4. Spammy notifications
+
+## 0.1.0
+
+1. Replace notification with custom dialog, need, greed, pass
+
+## Ideas
+
+1. Tie packages to icons, add player accessible menu to loot the icon, pop up loot window when the player loots
+   1. Need a "chest" icon
 
 
 ## React + TypeScript + Vite

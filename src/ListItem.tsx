@@ -1,21 +1,27 @@
 import { IconButton, ListItem as LI } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { PlayArrow } from "@mui/icons-material";
-import { deleteLoot } from "./lib";
+import { deleteLoot, sendLoot } from "./lib";
 import { type LootPackage } from "./types";
 
 export default function ListItem({ loot }: { loot: LootPackage }) {
-  const handlDelete = () => deleteLoot(loot);
-
   return (
     <LI
       key={loot.id}
       secondaryAction={
         <>
-          <IconButton aria-label="delete" edge="end" onClick={handlDelete}>
+          <IconButton
+            aria-label="delete"
+            edge="end"
+            onClick={() => deleteLoot(loot)}
+          >
             <DeleteIcon />
           </IconButton>
-          <IconButton edge="end" aria-label="send">
+          <IconButton
+            aria-label="send"
+            edge="end"
+            onClick={() => sendLoot(loot.lootPackage)}
+          >
             <PlayArrow />
           </IconButton>
         </>

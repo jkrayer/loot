@@ -1,6 +1,6 @@
 import { all, compose, isNotEmpty, propOr, replace, trim } from "ramda";
 import OBR from "@owlbear-rodeo/sdk";
-import type { LootPackage } from "./types";
+import type { BroadcastMsg, LootPackage } from "./types";
 
 // CONSTANTS ///////////////////////////////////////////////////////////////////
 export const APPLICATION_KEY = "com.jameskrayer/loot";
@@ -81,4 +81,16 @@ export async function deleteLoot(loot: LootPackage): Promise<string> {
   });
 
   return loot.id;
+}
+
+// Send Loot
+//
+export function sendLoot(msg: string): void {
+  OBR.notification.show(msg);
+  OBR.broadcast.sendMessage(APPLICATION_KEY, msg);
+  //
+}
+
+export function showMessage({ data }: BroadcastMsg) {
+  OBR.notification.show(String(data));
 }
