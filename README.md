@@ -9,7 +9,7 @@ Save and distribute loot in Owlbear Rodeo.
 1. ~~Transparent Backgrounds~~
    1. ~~What is background.html~~
 2. ~~Font sizes~~
-3. Dynamic Theme
+3. ~~Dynamic Theme~~
 4. Start Documentation
 
 ### 0.2.0 Loot Form
