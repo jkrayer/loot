@@ -103,6 +103,7 @@ export const composeTheme = (palette: Theme): ThemeOptions => ({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
+          overflow: "hidden",
           backgroundColor: "initial",
         },
       },

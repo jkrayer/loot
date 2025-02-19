@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Divider } from "@mui/material";
+import { Divider, Grid2 } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
 import { getApplicationData, readLoot } from "./lib";
 import { type LootPackage } from "./types";
@@ -23,10 +23,23 @@ export default function Loot() {
   }, []);
 
   return (
-    <>
-      <LootPackageForm size={packages.length} />
-      <Divider />
-      <ListPackages packages={packages} />
-    </>
+    <Grid2
+      container
+      direction="column"
+      sx={{
+        justifyContent: "flex-start",
+        alignItems: "stretch",
+      }}
+    >
+      <Grid2>
+        <LootPackageForm size={packages.length} />
+        <Divider />
+      </Grid2>
+      <Grid2
+        sx={{ maxHeight: "446px", overflowY: "scroll", scrollbarWidth: "thin" }}
+      >
+        <ListPackages packages={packages} />
+      </Grid2>
+    </Grid2>
   );
 }

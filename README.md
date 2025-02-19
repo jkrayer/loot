@@ -13,7 +13,7 @@ Add named packages and press play to share them with your players.
 ### 0.3.0 Loot Item
 
 1. ~~Add a shared attribute to indicate a package has been sent~~
-2. Probably scroll the package list
+2. ~~Probably scroll the package list~~
 3. Show me the details
 4. Bug - Deleting a middle element causes the auto number to revert... need to get highest given number instead
 5. Documentation
