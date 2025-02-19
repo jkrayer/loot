@@ -12,10 +12,11 @@ Add named packages and press play to share them with your players.
 
 ### 0.3.0 Loot Item
 
-1. Inline confirm delete
-2. Add a shared attribute to indicate a package has been sent
-3. Probably scroll the package list
-4. Documentation
+1. ~~Add a shared attribute to indicate a package has been sent~~
+2. Probably scroll the package list
+3. Show me the details
+4. Bug - Deleting a middle element causes the auto number to revert... need to get highest given number instead
+5. Documentation
 
 ### 0.4.0
 
@@ -25,9 +26,10 @@ Add named packages and press play to share them with your players.
 
 ### 0.5.0
 
-1. CI/CD
-2. [Sharing the Extension](https://docs.owlbear.rodeo/extensions/tutorial-sharing-your-extension/)
-3. public repo
+1. Pre-Commit Hook, lint and so forth
+2. CI/CD
+3. [Sharing the Extension](https://docs.owlbear.rodeo/extensions/tutorial-sharing-your-extension/)
+4. public repo
 
 ## Notional Future Features
 

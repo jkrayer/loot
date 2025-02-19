@@ -86,9 +86,10 @@ export async function deleteLoot(loot: LootPackage): Promise<string> {
 
 // Send Loot
 //
-export function sendLoot(msg: string): void {
-  OBR.notification.show(msg);
-  OBR.broadcast.sendMessage(APPLICATION_KEY, msg);
+export function sendLoot(loot: LootPackage): void {
+  OBR.notification.show(loot.lootPackage);
+  OBR.broadcast.sendMessage(APPLICATION_KEY, loot.lootPackage);
+  updateLoot({ ...loot, distributed: true });
   //
 }
 

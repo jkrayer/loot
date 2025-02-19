@@ -22,7 +22,6 @@ export default function Loot() {
     });
   }, []);
 
-  console.log(24, packages);
   return (
     <>
       <LootPackageForm size={packages.length} />
