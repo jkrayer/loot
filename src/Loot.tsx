@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Divider } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
 import { getApplicationData, readLoot } from "./lib";
 import { type LootPackage } from "./types";
@@ -25,6 +26,7 @@ export default function Loot() {
   return (
     <>
       <LootPackageForm size={packages.length} />
+      <Divider />
       <ListPackages packages={packages} />
     </>
   );

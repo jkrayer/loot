@@ -22,9 +22,13 @@ export default function LootPackageForm({ size }: { size: number }) {
     <Box
       component="form"
       sx={{
+        "&": {
+          mt: 2,
+          mb: 2,
+        },
         "& .MuiTextField-root, & .button-row": {
           m: 1,
-          width: "calc(100% - 32px)",
+          width: "calc(100% - 16px)",
         },
         "& .button-row": {
           textAlign: "right",
