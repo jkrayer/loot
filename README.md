@@ -10,7 +10,7 @@ Add named packages and press play to share them with your players.
 
 ### 0.2.0 Loot Form
 
-1. Add Default Package Name = Package packages.length + 1
+1. ~~Add Default Package Name = Package packages.length + 1~~
 2. Clear Form?
 3. Collapse Form?
 4. Documentation

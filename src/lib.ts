@@ -11,11 +11,11 @@ export const PACKAGE = "Package";
 export const getApplicationData = propOr<LootPackage[]>([], APPLICATION_KEY);
 
 // SETTERS /////////////////////////////////////////////////////////////////////
-export function createEmptyLootPackage(): LootPackage {
+export function createEmptyLootPackage(size: number): LootPackage {
   return {
     id: Date.now().toString() + Math.trunc(1000 * Math.random()),
     lootPackage: "",
-    title: "",
+    title: `Package ${size + 1}`,
   };
 }
 

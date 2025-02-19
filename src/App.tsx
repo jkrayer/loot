@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { CardHeader, Divider, Typography } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
 import { APPLICATION_KEY, showMessage } from "./lib";
-import ListPackages from "./ListPackages";
-import LootPackageForm from "./LootPackageForm";
+import Loot from "./Loot";
 import type { Role } from "./types";
 
 export default function App({ initialRole }: { initialRole: Role }) {
@@ -37,8 +36,7 @@ export default function App({ initialRole }: { initialRole: Role }) {
       <Divider />
       {role === "GM" ? (
         <>
-          <LootPackageForm />
-          <ListPackages />
+          <Loot />
         </>
       ) : (
         <Typography component="p" sx={{ m: [2, 1] }} variant="body2">
