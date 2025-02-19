@@ -3,15 +3,15 @@ import { Box, Button, TextField } from "@mui/material";
 import { createLoot, createEmptyLootPackage, PACKAGE } from "./lib";
 import { type LootPackage } from "./types";
 
-export default function LootPackageForm() {
-  const [state, setState] = useState<LootPackage>(createEmptyLootPackage());
+export default function LootPackageForm({ size }: { size: number }) {
+  const [state, setState] = useState<LootPackage>(createEmptyLootPackage(size));
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     createLoot(state)
       .then(() => {
-        setState(createEmptyLootPackage());
+        setState(createEmptyLootPackage(size));
       })
       .catch((err) => {
         setState(err);
@@ -22,9 +22,13 @@ export default function LootPackageForm() {
     <Box
       component="form"
       sx={{
+        "&": {
+          mt: 2,
+          mb: 2,
+        },
         "& .MuiTextField-root, & .button-row": {
           m: 1,
-          width: "calc(100% - 32px)",
+          width: "calc(100% - 16px)",
         },
         "& .button-row": {
           textAlign: "right",
@@ -35,7 +39,6 @@ export default function LootPackageForm() {
       onSubmit={handleSubmit}
     >
       <TextField
-        defaultValue={`${PACKAGE} 1`}
         fullWidth
         label="Name"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
