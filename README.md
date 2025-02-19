@@ -6,14 +6,9 @@ Save and distribute loot in Owlbear Rodeo.
 
 Add named packages and press play to share them with your players.
 
+![loot alert screen shot](./docs/alert.png?raw=true)
+
 ## Upcoming Versions
-
-### 0.2.0 Loot Form
-
-1. ~~Add Default Package Name = Package packages.length + 1~~
-2. Clear Form?
-3. Collapse Form?
-4. Documentation
 
 ### 0.3.0 Loot Item
 
@@ -40,3 +35,4 @@ Ideas that my be completed or discarded.
 
 1. Tie packages to icons, add player accessible menu to loot the icon, pop up loot window when the player loots
    1. Need a "chest" icon
+   2. Maybe add a function to move packages from the current store to an icon and back
