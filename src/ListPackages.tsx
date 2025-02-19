@@ -10,6 +10,7 @@ export default function ListPackages() {
 
   // EFFECTS
   useEffect(() => {
+    // ERROR HERE?
     OBR.onReady(async () => {
       const loot = await readLoot();
       setPackages(loot);

@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import OBR from "@owlbear-rodeo/sdk";
 import App from "./App.tsx";
+import ThemeProvider from "./ThemeProvider.tsx";
 
 OBR.onReady(async () => {
   let role = await OBR.player.getRole();
@@ -9,7 +10,9 @@ OBR.onReady(async () => {
 
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
-      <App initialRole={role} initialTheme={theme.mode} />
+      <ThemeProvider initialTheme={theme}>
+        <App initialRole={role} />
+      </ThemeProvider>
     </StrictMode>,
   );
 });

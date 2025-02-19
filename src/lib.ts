@@ -1,5 +1,6 @@
 import { all, compose, isNotEmpty, propOr, replace, trim } from "ramda";
-import OBR from "@owlbear-rodeo/sdk";
+import { type ThemeOptions } from "@mui/material";
+import OBR, { type Theme } from "@owlbear-rodeo/sdk";
 import type { BroadcastMsg, LootPackage } from "./types";
 
 // CONSTANTS ///////////////////////////////////////////////////////////////////
@@ -43,7 +44,7 @@ const validate = compose<[LootPackage], LootPackage, [LootPackage, boolean]>(
 // Scene CRUD //////////////////////////////////////////////////////////////////
 export async function createLoot(loot: LootPackage): Promise<LootPackage> {
   const [newLoot, valid] = validate(loot);
-  console.log(46, newLoot);
+
   if (valid) {
     const packages = await readLoot();
 
@@ -94,3 +95,20 @@ export function sendLoot(msg: string): void {
 export function showMessage({ data }: BroadcastMsg) {
   OBR.notification.show(String(data));
 }
+
+// CSS -------------------------------------------------------------------------
+export const composeTheme = (palette: Theme): ThemeOptions => ({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: "initial",
+        },
+      },
+    },
+  },
+  palette: {
+    ...palette,
+    mode: palette.mode === "DARK" ? "dark" : "light",
+  },
+});
