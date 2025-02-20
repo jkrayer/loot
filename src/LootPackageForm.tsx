@@ -1,17 +1,30 @@
 import { useState, type FormEvent } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { createLoot, createEmptyLootPackage, PACKAGE } from "./lib";
+import { getTitleNumber } from "./lib/loot";
 import { type LootPackage } from "./types";
 
-export default function LootPackageForm({ size }: { size: number }) {
-  const [state, setState] = useState<LootPackage>(createEmptyLootPackage(size));
+export default function LootPackageForm({
+  highestNumber,
+}: {
+  highestNumber: number;
+}) {
+  const [state, setState] = useState<LootPackage>(
+    createEmptyLootPackage(highestNumber),
+  );
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     createLoot(state)
-      .then(() => {
-        setState(createEmptyLootPackage(size));
+      .then((saved) => {
+        const titleNumber = getTitleNumber(saved);
+
+        setState(
+          createEmptyLootPackage(
+            titleNumber === -1 ? highestNumber : titleNumber,
+          ),
+        );
       })
       .catch((err) => {
         setState(err);
@@ -53,7 +66,6 @@ export default function LootPackageForm({ size }: { size: number }) {
         value={state.title}
       />
       <TextField
-        defaultValue={`1000 gp, 500 pp`}
         fullWidth
         label="Loot"
         multiline
