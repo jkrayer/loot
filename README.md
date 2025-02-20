@@ -10,17 +10,6 @@ Add named packages and press play to share them with your players.
 
 ## Upcoming Versions
 
-### 0.3.0 Loot Item
-
-1. ~~Add a shared attribute to indicate a package has been sent~~
-2. ~~Probably scroll the package list~~
-3. ~~Show me the details~~
-4. ~~Bug - Deleting a middle element causes the auto number to revert... need to get highest given number instead~~
-   1. ~~On app start get the highest number~~
-   2. ~~On title change set some var to "don't inc"~~
-   3. ~~On save check inc or don't~~
-5. Documentation
-
 ### 0.4.0
 
 1. Edit Package
