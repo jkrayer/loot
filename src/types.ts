@@ -5,6 +5,7 @@ export type LootPackage = {
   id: string;
   title: string;
   lootPackage: string;
+  distributed?: boolean;
 };
 
 export type BroadcastMsg = {

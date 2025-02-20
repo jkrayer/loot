@@ -1,7 +1,7 @@
-import { IconButton, ListItem as LI } from "@mui/material";
+import { IconButton, ListItem as LI, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { PlayArrow } from "@mui/icons-material";
-import { deleteLoot, sendLoot } from "./lib";
+import { PlayArrow, Visibility } from "@mui/icons-material";
+import { deleteLoot, preview, sendLoot } from "./lib";
 import { type LootPackage } from "./types";
 
 export default function ListItem({ loot }: { loot: LootPackage }) {
@@ -10,6 +10,13 @@ export default function ListItem({ loot }: { loot: LootPackage }) {
       key={loot.id}
       secondaryAction={
         <>
+          <IconButton
+            aria-label="preview"
+            edge="end"
+            onClick={() => preview(loot)}
+          >
+            <Visibility />
+          </IconButton>
           <IconButton
             aria-label="delete"
             edge="end"
@@ -20,14 +27,19 @@ export default function ListItem({ loot }: { loot: LootPackage }) {
           <IconButton
             aria-label="send"
             edge="end"
-            onClick={() => sendLoot(loot.lootPackage)}
+            onClick={() => sendLoot(loot)}
           >
             <PlayArrow />
           </IconButton>
         </>
       }
     >
-      {loot.title}
+      <Typography
+        variant="body2"
+        sx={{ textDecoration: loot.distributed ? "line-through" : "none" }}
+      >
+        {loot.title}
+      </Typography>
     </LI>
   );
 }

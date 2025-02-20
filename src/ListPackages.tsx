@@ -7,7 +7,6 @@ export default function ListPackages({
 }: {
   packages: LootPackage[];
 }) {
-  console.log(10, packages);
   return (
     <List>
       {packages.map((loot) => (
