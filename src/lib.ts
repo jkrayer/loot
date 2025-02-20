@@ -97,6 +97,9 @@ export function showMessage({ data }: BroadcastMsg) {
   OBR.notification.show(String(data));
 }
 
+export const preview = (loot: LootPackage): Promise<string> =>
+  OBR.notification.show(loot.lootPackage);
+
 // CSS -------------------------------------------------------------------------
 export const composeTheme = (palette: Theme): ThemeOptions => ({
   components: {
