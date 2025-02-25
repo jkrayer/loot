@@ -39,7 +39,6 @@ export default function LootPackageForm({
 
       return;
     } else {
-      console.log("createLoot", { ...state, id: createId() });
       createLoot({ ...state, id: createId() })
         .then((saved) => {
           const titleNumber = getTitleNumber(saved);
