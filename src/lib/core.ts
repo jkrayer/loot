@@ -27,3 +27,10 @@ export const getEndingNum = compose<[string], RegExpMatchArray, string, number>(
   headOr("-1"),
   match(/\d+$/),
 );
+
+/**
+ * Create a unique id. Not tested since the result is random.
+ * @returns string
+ */
+export const createId = (): string =>
+  Date.now().toString() + Math.trunc(1000 * Math.random());

@@ -1,15 +1,25 @@
 import { IconButton, ListItem as LI, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { PlayArrow, Visibility } from "@mui/icons-material";
+import { Edit, PlayArrow, Visibility } from "@mui/icons-material";
 import { deleteLoot, preview, sendLoot } from "./lib";
 import { type LootPackage } from "./types";
+import { useLootContext } from "./context/loot-context";
 
 export default function ListItem({ loot }: { loot: LootPackage }) {
+  const { setSelectedPackage } = useLootContext();
+
   return (
     <LI
       key={loot.id}
       secondaryAction={
         <>
+          <IconButton
+            aria-label="preview"
+            edge="end"
+            onClick={() => setSelectedPackage(loot)}
+          >
+            <Edit />
+          </IconButton>
           <IconButton
             aria-label="preview"
             edge="end"

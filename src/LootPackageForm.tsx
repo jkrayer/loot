@@ -1,7 +1,8 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Box, Button, TextField } from "@mui/material";
-import { createLoot, createEmptyLootPackage, PACKAGE } from "./lib";
-import { getTitleNumber } from "./lib/loot";
+import { useLootContext } from "./context/loot-context";
+import { createLoot, updateLoot, PACKAGE } from "./lib";
+import { createId, createEmptyLootPackage, getTitleNumber } from "./lib/index";
 import { type LootPackage } from "./types";
 
 export default function LootPackageForm({
@@ -9,26 +10,50 @@ export default function LootPackageForm({
 }: {
   highestNumber: number;
 }) {
+  // STATE
   const [state, setState] = useState<LootPackage>(
     createEmptyLootPackage(highestNumber),
   );
 
+  // CONTEXT
+  const { selectedPackage } = useLootContext();
+
+  useEffect(() => {
+    if (selectedPackage) {
+      setState(selectedPackage);
+    }
+  }, [selectedPackage]);
+
+  // HANDLERS
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    createLoot(state)
-      .then((saved) => {
-        const titleNumber = getTitleNumber(saved);
+    if (state.id) {
+      updateLoot(state)
+        .then(() => {
+          setState(createEmptyLootPackage(highestNumber));
+        })
+        .catch((err) => {
+          setState(err);
+        });
 
-        setState(
-          createEmptyLootPackage(
-            titleNumber === -1 ? highestNumber : titleNumber,
-          ),
-        );
-      })
-      .catch((err) => {
-        setState(err);
-      });
+      return;
+    } else {
+      console.log("createLoot", { ...state, id: createId() });
+      createLoot({ ...state, id: createId() })
+        .then((saved) => {
+          const titleNumber = getTitleNumber(saved);
+
+          setState(
+            createEmptyLootPackage(
+              titleNumber === -1 ? highestNumber : titleNumber,
+            ),
+          );
+        })
+        .catch((err) => {
+          setState(err);
+        });
+    }
   };
 
   return (
