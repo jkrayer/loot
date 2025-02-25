@@ -12,7 +12,7 @@ Add named packages and press play to share them with your players.
 
 ### 0.4.0
 
-1. Edit Package
+1. ~~Edit Package~~
 2. Move loot functions to flyout
    1. Can I reuse OBR or do I roll my own?
  

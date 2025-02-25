@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { useLootContext } from "./context/loot-context";
-import { createLoot, updateLoot, PACKAGE } from "./lib";
+import { createLoot, updateLoot } from "./lib";
 import { createId, createEmptyLootPackage, getTitleNumber } from "./lib/index";
 import { type LootPackage } from "./types";
 
@@ -85,7 +85,6 @@ export default function LootPackageForm({
             title: event.target.value,
           }));
         }}
-        placeholder={PACKAGE}
         required
         size="small"
         value={state.title}
