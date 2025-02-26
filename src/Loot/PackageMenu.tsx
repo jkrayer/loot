@@ -5,14 +5,12 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  MenuList,
-  Paper,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Edit, Menu as MenuIcon, Visibility } from "@mui/icons-material";
-import { useLootContext } from "./context/loot-context";
-import type { LootPackage } from "./types";
-import { deleteLoot, preview } from "./lib";
+import { useLootContext } from "../context/loot-context";
+import type { LootPackage } from "../types";
+import { deleteLoot, preview } from "../lib";
 
 export default function PackageMenu({ loot }: { loot: LootPackage }) {
   // CONTEXT

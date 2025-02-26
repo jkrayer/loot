@@ -1,18 +1,23 @@
 import OBR from "@owlbear-rodeo/sdk";
-import { APPLICATION_KEY } from "./constants";
+import { APPLICATION_KEY, APPLICATION_MODAL_KEY } from "./constants";
 import { updateLoot } from "./scene-crud";
 import type { BroadcastMsg, LootPackage } from "../types";
 
+const lootPopover = (id: string) =>
+  OBR.popover.open({
+    id: APPLICATION_MODAL_KEY,
+    url: `/src/Modal/index.html?packageId=${id}`,
+    height: 300,
+    width: 400,
+  });
+
+export const preview = (loot: LootPackage): Promise<void> =>
+  lootPopover(loot.id);
+
 export function sendLoot(loot: LootPackage): void {
-  OBR.notification.show(loot.lootPackage);
-  OBR.broadcast.sendMessage(APPLICATION_KEY, loot.lootPackage);
   updateLoot({ ...loot, distributed: true });
-  //
+  lootPopover(loot.id);
+  OBR.broadcast.sendMessage(APPLICATION_KEY, loot.id);
 }
 
-export function showMessage({ data }: BroadcastMsg) {
-  OBR.notification.show(String(data));
-}
-
-export const preview = (loot: LootPackage): Promise<string> =>
-  OBR.notification.show(loot.lootPackage);
+export const showMessage = ({ data }: BroadcastMsg) => lootPopover(data);

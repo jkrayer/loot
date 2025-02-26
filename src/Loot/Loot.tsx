@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Divider, Grid2 } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
-import { getApplicationData, readLoot } from "./lib";
-import { highestEndingNumber } from "./lib/loot";
-import { type LootPackage } from "./types";
+import { getApplicationData, highestEndingNumber, readLoot } from "../lib";
+import { type LootPackage } from "../types";
 import LootPackageForm from "./LootPackageForm";
 import ListPackages from "./ListPackages";
 

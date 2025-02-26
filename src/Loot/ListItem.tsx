@@ -1,8 +1,8 @@
 import { IconButton, ListItem as LI, Typography } from "@mui/material";
 import { PlayArrow } from "@mui/icons-material";
 import PackageMenu from "./PackageMenu";
-import { sendLoot } from "./lib";
-import { type LootPackage } from "./types";
+import { sendLoot } from "../lib";
+import { type LootPackage } from "../types";
 
 export default function ListItem({ loot }: { loot: LootPackage }) {
   return (

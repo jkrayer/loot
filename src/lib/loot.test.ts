@@ -3,6 +3,7 @@ import {
   getTitleNumber,
   highestEndingNumber,
   createEmptyLootPackage,
+  toLootLines,
 } from "./loot";
 import type { LootPackage } from "../types";
 
@@ -94,5 +95,31 @@ describe("highestEndingNumber", () => {
         title: "Package 1",
       });
     });
+  });
+});
+
+describe("toLootLines", () => {
+  test("should return an array of trimmed strings split by comma or newline", () => {
+    const lootPackage = {
+      lootPackage: " item1, item2 \n item3 ,item4\nitem5 ",
+    };
+    // @ts-expect-error
+    const result = toLootLines(lootPackage);
+    expect(result).toEqual(["item1", "item2", "item3", "item4", "item5"]);
+  });
+
+  test("should return an empty array if lootPackage is null", () => {
+    const lootPackage = null;
+    const result = toLootLines(lootPackage);
+    expect(result).toEqual([""]);
+  });
+
+  test("should return an empty array if lootPackage is an empty string", () => {
+    const lootPackage = {
+      lootPackage: "",
+    };
+    // @ts-expect-error
+    const result = toLootLines(lootPackage);
+    expect(result).toEqual([""]);
   });
 });

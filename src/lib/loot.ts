@@ -1,4 +1,4 @@
-import { compose, max, prop, reduce } from "ramda";
+import { compose, map, max, prop, propOr, reduce, split, trim } from "ramda";
 import { getEndingNum } from "./core";
 import type { LootPackage } from "../types";
 
@@ -22,3 +22,13 @@ export const createEmptyLootPackage = (size: number): LootPackage => ({
   lootPackage: "",
   title: `Package ${size + 1}`,
 });
+
+/**
+ * Split the lootPackage string into an array of strings
+ */
+export const toLootLines = compose<
+  [LootPackage | null],
+  string,
+  string[],
+  string[]
+>(map(trim), split(/,\s?|\n/), propOr("", "lootPackage"));

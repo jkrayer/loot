@@ -45,3 +45,11 @@ export async function deleteLoot(loot: LootPackage): Promise<string> {
 
   return loot.id;
 }
+
+export async function getLoot(id: string): Promise<LootPackage | null> {
+  const metadata = await OBR.scene.getMetadata();
+
+  const lootPackages: LootPackage[] = getApplicationData(metadata);
+
+  return lootPackages.filter((p: LootPackage) => p.id === id)[0] || null;
+}

@@ -1,6 +1,6 @@
 import { List } from "@mui/material";
-import { type LootPackage } from "./types";
 import ListItem from "./ListItem";
+import { type LootPackage } from "../types";
 
 export default function ListPackages({
   packages,
