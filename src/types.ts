@@ -7,8 +7,3 @@ export type LootPackage = {
   lootPackage: string;
   distributed?: boolean;
 };
-
-export type BroadcastMsg = {
-  data: string;
-  connectionId: string;
-};

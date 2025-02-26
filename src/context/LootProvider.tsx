@@ -2,7 +2,7 @@ import { useState, type PropsWithChildren } from "react";
 import { LOOT_CONTEXT } from "./loot-context";
 import type { LootPackage } from "../types";
 
-export default function LootProvider({ children }: PropsWithChildren<never>) {
+export default function LootProvider({ children }: PropsWithChildren<unknown>) {
   const [selectedPackage, setSelectedPackage] = useState<LootPackage | null>(
     null,
   );

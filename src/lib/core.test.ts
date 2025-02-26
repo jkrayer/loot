@@ -41,7 +41,8 @@ describe("getEndingNum", () => {
 
   describe("getApplicationData", () => {
     test("should return the application data from the given object", () => {
-      const data: LootPackage[] = [{ id: "1", name: "Loot1" }];
+      // @ts-expect-error - missing properties for test
+      const data: LootPackage[] = [{ id: "1", title: "Loot1" }];
       const obj = { [APPLICATION_KEY]: data };
       expect(getApplicationData(obj)).toEqual(data);
     });

@@ -1,7 +1,7 @@
 import OBR from "@owlbear-rodeo/sdk";
 import { APPLICATION_KEY, APPLICATION_MODAL_KEY } from "./constants";
 import { updateLoot } from "./scene-crud";
-import type { BroadcastMsg, LootPackage } from "../types";
+import type { LootPackage } from "../types";
 
 const lootPopover = (id: string) =>
   OBR.popover.open({
@@ -20,4 +20,9 @@ export function sendLoot(loot: LootPackage): void {
   OBR.broadcast.sendMessage(APPLICATION_KEY, loot.id);
 }
 
-export const showMessage = ({ data }: BroadcastMsg) => lootPopover(data);
+export const showMessage = ({
+  data,
+}: {
+  data: unknown;
+  connectionId: string;
+}) => lootPopover(data as string);
