@@ -9,6 +9,7 @@
     "format": "prettier --write ./src",
     "lint": "eslint .",
     "test": "vitest",
+    "precommit": "npm run format && npm run lint && vitest run",
     "preview": "vite preview"
   },
   "dependencies": {

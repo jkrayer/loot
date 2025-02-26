@@ -8,7 +8,7 @@ describe("getPackageId", () => {
         search: "?packageId=12345",
       },
     };
-    // @ts-expect-error
+    // @ts-expect-error - missing properties for test
     const result = getPackageId(mockWindow);
     expect(result).toBe("12345");
   });
@@ -19,7 +19,7 @@ describe("getPackageId", () => {
         search: "?otherParam=67890",
       },
     };
-    // @ts-expect-error
+    // @ts-expect-error - missing properties for test
     const result = getPackageId(mockWindow);
     expect(result).toBe("");
   });
@@ -30,7 +30,7 @@ describe("getPackageId", () => {
         search: "?packageId=12345&otherParam=67890",
       },
     };
-    // @ts-expect-error
+    // @ts-expect-error - missing properties for test
     const result = getPackageId(mockWindow);
     expect(result).toBe("12345");
   });
@@ -41,7 +41,7 @@ describe("getPackageId", () => {
         search: "",
       },
     };
-    // @ts-expect-error
+    // @ts-expect-error - missing properties for test
     const result = getPackageId(mockWindow);
     expect(result).toBe("");
   });

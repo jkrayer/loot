@@ -6,8 +6,8 @@ import { getLoot, getPackageId } from "../lib";
 import ThemeProvider from "../ThemeProvider.tsx";
 
 OBR.onReady(async () => {
-  let theme = await OBR.theme.getTheme();
-  let lootPackage = await getLoot(getPackageId(window));
+  const theme = await OBR.theme.getTheme();
+  const lootPackage = await getLoot(getPackageId(window));
 
   createRoot(document.getElementById("root")!).render(
     <StrictMode>

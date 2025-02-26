@@ -5,8 +5,8 @@ import App from "./App.tsx";
 import ThemeProvider from "../ThemeProvider.tsx";
 
 OBR.onReady(async () => {
-  let role = await OBR.player.getRole();
-  let theme = await OBR.theme.getTheme();
+  const role = await OBR.player.getRole();
+  const theme = await OBR.theme.getTheme();
 
   createRoot(document.getElementById("root")!).render(
     <StrictMode>

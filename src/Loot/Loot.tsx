@@ -19,7 +19,8 @@ export default function Loot() {
         const loot = await readLoot();
         setPackages(loot);
         setLoading(false);
-      } catch (e) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {
         getPackages();
       }
     };

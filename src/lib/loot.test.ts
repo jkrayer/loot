@@ -103,7 +103,7 @@ describe("toLootLines", () => {
     const lootPackage = {
       lootPackage: " item1, item2 \n item3 ,item4\nitem5 ",
     };
-    // @ts-expect-error
+    // @ts-expect-error - missing properties for test
     const result = toLootLines(lootPackage);
     expect(result).toEqual(["item1", "item2", "item3", "item4", "item5"]);
   });
@@ -118,7 +118,7 @@ describe("toLootLines", () => {
     const lootPackage = {
       lootPackage: "",
     };
-    // @ts-expect-error
+    // @ts-expect-error - missing properties for test
     const result = toLootLines(lootPackage);
     expect(result).toEqual([""]);
   });

@@ -17,6 +17,7 @@ export default function App({ initialRole }: { initialRole: Role }) {
       OBR.action.setHeight(role === "GM" ? 700 : 86);
       setRole(player.role);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // HANDLE SHOWING THE LOOT
