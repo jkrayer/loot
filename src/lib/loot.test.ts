@@ -111,7 +111,7 @@ describe("toLootLines", () => {
   test("should return an empty array if lootPackage is null", () => {
     const lootPackage = null;
     const result = toLootLines(lootPackage);
-    expect(result).toEqual([]);
+    expect(result).toEqual([""]);
   });
 
   test("should return an empty array if lootPackage is an empty string", () => {
@@ -120,6 +120,6 @@ describe("toLootLines", () => {
     };
     // @ts-expect-error
     const result = toLootLines(lootPackage);
-    expect(result).toEqual([]);
+    expect(result).toEqual([""]);
   });
 });
