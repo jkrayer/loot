@@ -19,9 +19,11 @@ Players and DM alike see the shared loot package.
 ### 0.6.0
 
 1. ~~Pre-Commit Hook, lint and so forth~~
-2. CI/CD
-3. [Sharing the Extension](https://docs.owlbear.rodeo/extensions/tutorial-sharing-your-extension/)
-4. public repo
+2. ~~build~~
+   1. Need to get all the files published someplace
+3. CI/CD
+4. [Sharing the Extension](https://docs.owlbear.rodeo/extensions/tutorial-sharing-your-extension/)
+5. public repo
 
 ## Notional Future Features
 
