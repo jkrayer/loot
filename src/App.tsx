@@ -36,7 +36,6 @@ export default function App({ initialRole }: { initialRole: Role }) {
         }}
       />
       <Divider />
-      <PackageMenu />
       {role === "GM" ? (
         <>
           <Loot />
