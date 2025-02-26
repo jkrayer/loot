@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CardHeader, Divider, Typography } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
 import LootProvider from "../context/loot-context";
-import { APPLICATION_KEY, showMessage } from "../lib";
+import { showMessage, APPLICATION_KEY } from "../lib";
 import Loot from "./Loot";
 import type { Role } from "../types";
 

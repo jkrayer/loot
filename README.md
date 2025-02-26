@@ -9,12 +9,11 @@ Add named packages and press play to share them with your players.
 ![loot alert screen shot](./docs/alert.png?raw=true)
 
 ## Upcoming Versions
-
  
 ### 0.5.0
 
-1. Replace notification with custom dialog, need, greed, pass
-2. Spammy notifications
+1. ~~Replace notification with custom dialog, need, greed, pass~~
+2. ~~Spammy notifications~~
 3. Documentation
 
 ### 0.6.0

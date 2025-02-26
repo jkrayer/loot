@@ -9,6 +9,6 @@ export type LootPackage = {
 };
 
 export type BroadcastMsg = {
-  data: unknown;
+  data: string;
   connectionId: string;
 };
