@@ -4,9 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loot!</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+          Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+      main {
+        box-sizing: border-box;
+        padding: 1em;
+        max-width: 50em;
+        margin: 0 auto;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    </style>
   </head>
   <body>
-    <h1>Wrong Index</h1>
-    <div id="root"></div>
+    <main>
+      <article>
+        <header>
+          <h1>Loot!</h1>
+        </header>
+
+        <p>
+          You've reached the hosting page for the Loot! plugin.
+          <a href="https://github.com/jkrayer/loot"
+            >View the Loot home page on Loot on Github.</a
+          >
+        </p>
+
+        <p>Save and distribute loot in Owlbear Rodeo.</p>
+
+        <img src="./docs/screenshot.png" alt="loot screen shot" />
+
+        <p>
+          Add loot packages to the current scene. Give your package a name and
+          add treasure. Use commas or line breaks to separate treasure.
+        </p>
+
+        <img src="./docs/controls.png" alt="loot controls" />
+
+        <p>
+          Packages can be shared with player by pressing the play button. Shared
+          packages have a line through them.
+        </p>
+
+        <img src="./docs/alert.png" alt="loot alert screen shot" />
+
+        <p>Players and DM alike see the shared loot package.</p>
+      </article>
+    </main>
   </body>
 </html>
