@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        index: resolve(process.cwd(), "./index.html"),
+        index: resolve(process.cwd(), "./src/Loot/index.html"),
         modal: resolve(process.cwd(), "./src/Modal/index.html"),
       },
     },
