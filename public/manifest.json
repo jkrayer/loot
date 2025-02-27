@@ -9,7 +9,7 @@
   "action": {
     "title": "Loot!",
     "icon": "/icon.svg",
-    "popover": "/",
+    "popover": "/src/Loot/index.html",
     "height": 600,
     "width": 400
   }
