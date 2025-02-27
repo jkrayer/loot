@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CardHeader, Divider, Typography } from "@mui/material";
 import OBR from "@owlbear-rodeo/sdk";
-import LootProvider from "../context/loot-context";
+import LootProvider from "../context/LootProvider";
 import { showMessage, APPLICATION_KEY } from "../lib";
 import Loot from "./Loot";
 import type { Role } from "../types";
@@ -17,6 +17,7 @@ export default function App({ initialRole }: { initialRole: Role }) {
       OBR.action.setHeight(role === "GM" ? 700 : 86);
       setRole(player.role);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // HANDLE SHOWING THE LOOT

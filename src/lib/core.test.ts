@@ -41,7 +41,8 @@ describe("getEndingNum", () => {
 
   describe("getApplicationData", () => {
     test("should return the application data from the given object", () => {
-      const data: LootPackage[] = [{ id: "1", name: "Loot1" }];
+      // @ts-expect-error - missing properties for test
+      const data: LootPackage[] = [{ id: "1", title: "Loot1" }];
       const obj = { [APPLICATION_KEY]: data };
       expect(getApplicationData(obj)).toEqual(data);
     });
@@ -54,14 +55,14 @@ describe("getEndingNum", () => {
 
   describe("composeTheme", () => {
     test("should compose a theme with the given palette", () => {
-      // @ts-expect-error
+      // @ts-expect-error - missing properties for test
       const palette: Theme = { mode: "DARK" };
       const themeOptions = composeTheme(palette);
       expect(themeOptions.palette?.mode).toBe("dark");
     });
 
     test("should set the mode to light if the palette mode is not DARK", () => {
-      // @ts-expect-error
+      // @ts-expect-error - missing properties for test
       const palette: Theme = { mode: "LIGHT" };
       const themeOptions = composeTheme(palette);
       expect(themeOptions.palette?.mode).toBe("light");
