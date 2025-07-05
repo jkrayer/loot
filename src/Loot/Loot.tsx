@@ -53,7 +53,7 @@ export default function Loot() {
       <Grid2
         sx={{ maxHeight: "446px", overflowY: "scroll", scrollbarWidth: "thin" }}
       >
-        <ListPackages packages={packages} />
+        {packages.length === 0 ? null : <ListPackages packages={packages} />}
       </Grid2>
     </Grid2>
   );
