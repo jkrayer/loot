@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   build: {
+    assetsDir: "loot/assets",
     rollupOptions: {
       input: {
         index: resolve(process.cwd(), "./src/Loot/index.html"),
