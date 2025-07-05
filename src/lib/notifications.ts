@@ -6,7 +6,7 @@ import type { LootPackage } from "../types";
 const lootPopover = (id: string) =>
   OBR.popover.open({
     id: APPLICATION_MODAL_KEY,
-    url: `/src/Modal/index.html?packageId=${id}`,
+    url: `/loot/src/Modal/index.html?packageId=${id}`,
     height: 300,
     width: 400,
   });

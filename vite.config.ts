@@ -17,5 +17,11 @@ export default defineConfig({
   server: {
     allowedHosts: true,
     cors: true,
+    proxy: {
+      "/loot": {
+        target: "http://localhost:5173/",
+        rewrite: (path) => path.replace(/^\/loot/, ""),
+      },
+    },
   },
 });

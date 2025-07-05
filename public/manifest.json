@@ -1,15 +1,15 @@
 {
   "name": "Loot",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "manifest_version": 1,
   "author": "James Krayer",
-  "icon": "/icon.svg",
+  "icon": "/loot/icon.svg",
   "homepage_url": "https://github.com/jkrayer/loot",
   "description": "Build and distribute loot packages",
   "action": {
     "title": "Loot!",
-    "icon": "/icon.svg",
-    "popover": "/src/Loot/index.html",
+    "icon": "/loot/icon.svg",
+    "popover": "/loot/src/Loot/index.html",
     "height": 600,
     "width": 400
   }
